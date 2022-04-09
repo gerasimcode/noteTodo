@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NotesService } from 'src/app/service/notes.service';
 
 @Component({
   selector: 'app-note',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
-  constructor() { }
+  @Input() note: any;
+  constructor(private noteSrv: NotesService) { }
 
   ngOnInit(): void {
+  }
+  delete(note: any) {
+    this.noteSrv.deleteNotes(note).subscribe((res:any)=> {
+      debugger;
+      this.noteSrv.onDelete.next(true);
+    });
   }
 
 }

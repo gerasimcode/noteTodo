@@ -1,0 +1,9 @@
+.new {
+    height: 164px;
+    line-height: 7.5;
+    border: 3px dashed !important;
+}
+.new-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
